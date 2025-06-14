@@ -3,6 +3,7 @@ import sys
 import random
 import time
 import os
+
 # pygame 초기 설정
 pygame.init()
 screen = pygame.display.set_mode((800, 600))
@@ -278,7 +279,7 @@ else:
     screen.fill((0, 0, 0))
 
 if life <= 0:
-    text = font.render("게임 오버!", True, (255, 0, 0))
+    text = font.render("Game Over!", True, (255, 0, 0))
     final_grade = font.render(f"최종 학점: {get_current_grade(score)}", True, (255, 255, 255))
     final_score = font.render(f"최종 점수: {score}", True, (255, 255, 255))
     text_rect = text.get_rect(center=(400, 280))
@@ -289,7 +290,7 @@ if life <= 0:
     screen.blit(final_score, score_rect)
 
 if score >= GRADE_THRESHOLDS['A']:
-    text = font.render("A학점 달성!", True, (0, 255, 0))
+    text = font.render("A학점으로 졸업 성공!!", True, (0, 255, 0))
     text2 = font.render(f"클리어 시간: {int(time.time() - start_time)}초", True, (255, 255, 255))
     text3 = font.render(f"최종 점수: {int(score)}", True, (255, 255, 255))
     text_rect = text.get_rect(center=(400, 280))

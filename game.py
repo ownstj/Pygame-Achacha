@@ -3,7 +3,6 @@ import sys
 import random
 import time
 import os
-
 # pygame 초기 설정
 pygame.init()
 screen = pygame.display.set_mode((800, 600))
@@ -271,9 +270,9 @@ while running:
     clock.tick(60)
 
 # 게임 종료
-if background_day_image:
+if state == 'day':
     screen.blit(background_day_image, (0, 0)) 
-elif background_night_image:
+elif state == 'night':
     screen.blit(background_night_image, (0, 0))
 else:
     screen.fill((0, 0, 0))
@@ -281,7 +280,7 @@ else:
 if life <= 0:
     text = font.render("Game Over!", True, (255, 0, 0))
     final_grade = font.render(f"최종 학점: {get_current_grade(score)}", True, (255, 255, 255))
-    final_score = font.render(f"최종 점수: {score}", True, (255, 255, 255))
+    final_score = font.render(f"최종 점수: {int(score)}", True, (255, 255, 255))
     text_rect = text.get_rect(center=(400, 280))
     grade_rect = final_grade.get_rect(center=(400, 320))
     score_rect = final_score.get_rect(center=(400, 360))
